@@ -141,22 +141,29 @@ export default function DiscatraMap() {
 
     if (!heatRef.current) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      heatRef.current = (L as any)
-        .heatLayer(points, {
-          radius: 42,
-          blur: 38,
-          maxZoom: 6,
-          minOpacity: 0.25,
-          gradient: {
-            0.0: "rgba(56,189,248,0)",
-            0.2: "rgba(56,189,248,0.55)",
-            0.4: "rgba(34,197,94,0.7)",
-            0.6: "rgba(250,204,21,0.8)",
-            0.8: "rgba(249,115,22,0.88)",
-            1.0: "rgba(220,38,38,0.95)",
-          },
-        })
-        .addTo(map) as HeatLayer;
+      const layer = (L as any).heatLayer(points, {
+        radius: 45,
+        blur: 40,
+        max: 1,
+        maxZoom: 6,
+        minOpacity: 0.2,
+        gradient: {
+          0.0: "rgba(56,189,248,0)",
+          0.25: "#38bdf8",
+          0.45: "#22c55e",
+          0.65: "#facc15",
+          0.82: "#f97316",
+          1.0: "#dc2626",
+        },
+      });
+      layer.addTo(map);
+      // keep the satellite imagery readable underneath the overlay
+      const canvas = (layer as unknown as { _canvas?: HTMLCanvasElement })._canvas;
+      if (canvas) {
+        canvas.style.opacity = "0.62";
+        canvas.style.transition = "opacity 400ms ease";
+      }
+      heatRef.current = layer as HeatLayer;
     } else {
       heatRef.current.setLatLngs(points);
     }
