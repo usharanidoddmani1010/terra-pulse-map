@@ -145,8 +145,8 @@ export default function DiscatraMap() {
         .heatLayer(points, {
           radius: 42,
           blur: 38,
-          maxZoom: 9,
-          minOpacity: 0.18,
+          maxZoom: 6,
+          minOpacity: 0.25,
           gradient: {
             0.0: "rgba(56,189,248,0)",
             0.2: "rgba(56,189,248,0.55)",
