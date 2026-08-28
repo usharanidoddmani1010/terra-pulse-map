@@ -59,6 +59,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-panel: var(--panel);
+  --color-panel-hover: var(--panel-hover);
+  --color-panel-border: var(--panel-border);
+  --color-panel-foreground: var(--panel-foreground);
+  --color-panel-muted: var(--panel-muted);
 }
 
 :root {
@@ -95,6 +100,11 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --panel: oklch(0.18 0.02 250 / 0.72);
+  --panel-hover: oklch(0.26 0.025 250 / 0.85);
+  --panel-border: oklch(1 0 0 / 0.14);
+  --panel-foreground: oklch(0.98 0.005 250);
+  --panel-muted: oklch(0.78 0.015 250 / 0.85);
 }
 
 .dark {
