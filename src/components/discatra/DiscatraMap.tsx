@@ -120,7 +120,7 @@ export default function DiscatraMap() {
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
-    const active = enabledLayers.rainfall;
+    const active = enabledLayers["rainfall"];
 
     if (!active) {
       if (heatRef.current) {
